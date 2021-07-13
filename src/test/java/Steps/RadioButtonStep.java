@@ -26,7 +26,7 @@ public class RadioButtonStep {
 
     @Then("^The website display the selected value correctly  with \"([^\"]*)\"$")
     public void theWebsiteDisplayTheSelectedValueCorrectlyWith(String value) throws Throwable {
-        Assert.assertEquals(radiobuttonSerenity.getValue(),value);
+        Assert.assertEquals(radiobuttonSerenity.getValue(), value);
 
     }
 

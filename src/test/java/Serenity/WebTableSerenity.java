@@ -49,15 +49,23 @@ public class WebTableSerenity extends ScenarioSteps {
     public void enterDataTC04(){
         webtablePage.enterDataTC04();
     }
-    public String colorCode(){
+    public void enterDataTC05(){
+        webtablePage.enterDataTC05();
+    }
+    public String emailInputColorCode(){
 
-        return webtablePage.colorCode();
+        return webtablePage.emailInputColorCode();
+    }
+    public String ageInputColorCode(){
+
+        return webtablePage.emailInputColorCode();
     }
     public String expectedColorWhenFalse(){
-        return "rgba(220, 53, 69, 1)";
+        String expectedColorCodeInRGB= "rgba(220, 53, 69, 1)";
+        return expectedColorCodeInRGB;
     }
     public String expectedColorWhenTrue(){
 
-        return "rgba(40, 167, 69, 1)";
+        return "rgb(40, 167, 69)";
     }
 }

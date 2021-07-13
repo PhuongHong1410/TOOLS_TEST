@@ -1,50 +1,61 @@
 package Pages;
+
 import UI.WebTable;
 import net.serenitybdd.core.pages.PageObject;
 import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("https://demoqa.com/webtables")
-public class WebTablePage extends PageObject{
+public class WebTablePage extends PageObject {
 
-    WebTable ui ;
-    public String getFirstName(){
+    WebTable ui;
+
+    public String getFirstName() {
         return ui.firstName.getTextValue();
     }
 
-    public String getLastName(){
+    public String getLastName() {
         return ui.lastName.getTextValue();
     }
-    public String getFirstNameNew(){
+
+    public String getFirstNameNew() {
         return ui.firstNameNew.getTextValue();
     }
-    public String getLastNameNew(){
+
+    public String getLastNameNew() {
         return ui.lastNameNew.getTextValue();
     }
-    public String getAgeNew(){
+
+    public String getAgeNew() {
         return ui.ageNew.getTextValue();
     }
-    public String getEmailNew(){
+
+    public String getEmailNew() {
         return ui.emailNew.getTextValue();
     }
-    public String getSalaryNew(){
+
+    public String getSalaryNew() {
         return ui.salaryNew.getTextValue();
     }
-    public String getDepartmentNew(){
+
+    public String getDepartmentNew() {
         return ui.departmentNew.getTextValue();
     }
-    public void clickAddButton(){
+
+    public void clickAddButton() {
 
         ui.add.click();
     }
 
-    public String getFormName(){
+    public String getFormName() {
         return ui.formName.getTextValue();
     }
-    public void clickSubmitButton(){
+
+    public void clickSubmitButton() {
 
         ui.submit.click();
     }
-    public void enterDataTC03(){
+
+    public void enterDataTC03() {
         ui.firstnameinput.sendKeys("Phuong");
         ui.lastnameinput.sendKeys("Hong");
         ui.emailinput.sendKeys("phuong123@gmail.com");
@@ -52,7 +63,8 @@ public class WebTablePage extends PageObject{
         ui.salaryinput.sendKeys("2000000");
         ui.departmentinput.sendKeys("Tester Team");
     }
-    public void enterDataTC04(){
+
+    public void enterDataTC04() {
         ui.firstnameinput.sendKeys("Phuong");
         ui.lastnameinput.sendKeys("Hong");
         ui.emailinput.sendKeys("phuong123");
@@ -60,8 +72,23 @@ public class WebTablePage extends PageObject{
         ui.salaryinput.sendKeys("2000000");
         ui.departmentinput.sendKeys("Tester Team");
     }
-    public String colorCode(){
-        String colorCode= ui.emailNew.getCssValue("border-bottom-color");
+
+    public void enterDataTC05() {
+        ui.firstnameinput.sendKeys("Phuong");
+        ui.lastnameinput.sendKeys("Hong");
+        ui.emailinput.sendKeys("phuong123@gmail.com");
+        ui.ageinput.sendKeys("ag");
+        ui.salaryinput.sendKeys("2000000");
+        ui.departmentinput.sendKeys("Tester Team");
+    }
+
+
+    public String emailInputColorCode() {
+        String colorCode = ui.emailinput.getCssValue("border-bottom-color");
+        return colorCode;
+    }
+    public String ageInputColorCode() {
+        String colorCode = ui.ageinput.getCssValue("border-bottom-color");
         return colorCode;
     }
 }

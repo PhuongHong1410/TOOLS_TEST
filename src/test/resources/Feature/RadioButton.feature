@@ -8,4 +8,4 @@ Feature: RadioButton
     Then The website display the selected value correctly  with "<value>"
     Examples:
       | value |
-      | Yes |
+      | Yes   |

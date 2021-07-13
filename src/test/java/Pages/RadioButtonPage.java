@@ -6,13 +6,14 @@ import net.thucydides.core.annotations.DefaultUrl;
 
 @DefaultUrl("https://demoqa.com/radio-button")
 public class RadioButtonPage extends PageObject {
-    RadioButton ui ;
+    RadioButton ui;
 
-    public void clickYesRadioButton(){
+    public void clickYesRadioButton() {
 
         ui.btnYes.click();
     }
-    public String getValue(){
+
+    public String getValue() {
         return ui.valueYes.getTextValue();
     }
 

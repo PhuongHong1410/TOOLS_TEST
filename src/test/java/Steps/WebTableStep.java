@@ -1,5 +1,6 @@
 package Steps;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -11,16 +12,18 @@ import Serenity.WebTableSerenity;
 public class WebTableStep {
     @Steps
     WebTableSerenity webtableSerenity;
+
     @Given("^Open home page$")
     public void openHomePage() {
         webtableSerenity.openHomePage();
     }
 
     @Then("^The website display Member in Grid correct with \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void theWebsiteDisplayMemberinGridCorrectWithAnd(String firstName,String lastName) throws Throwable {
-        Assert.assertEquals(webtableSerenity.getFirstName(),firstName);
-        Assert.assertEquals(webtableSerenity.getLastName(),lastName);
+    public void theWebsiteDisplayMemberinGridCorrectWithAnd(String firstName, String lastName) throws Throwable {
+        Assert.assertEquals(webtableSerenity.getFirstName(), firstName);
+        Assert.assertEquals(webtableSerenity.getLastName(), lastName);
     }
+
     @When("^Click on add button$")
     public void clickOnAddButton() {
         webtableSerenity.clickAddButton();
@@ -29,7 +32,7 @@ public class WebTableStep {
     @Then("^The website display Form correct with \"([^\"]*)\"$")
     public void theWebsiteDisplayFormCorrectWith(String formName) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertEquals(webtableSerenity.getFormName(),formName);
+        Assert.assertEquals(webtableSerenity.getFormName(), formName);
 
     }
 
@@ -46,12 +49,12 @@ public class WebTableStep {
     @Then("^The website display Member in Grid correct with \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\"$")
     public void theWebsiteDisplayMemberInGridCorrectWithAndAndAndAndAnd(String fnamenew, String lnamenew, String agenew, String emailnew, String salarynew, String departmentnew) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
-        Assert.assertEquals(webtableSerenity.getFirstNameNew(),fnamenew);
-        Assert.assertEquals(webtableSerenity.getLastNameNew(),lnamenew);
-        Assert.assertEquals(webtableSerenity.getAgeNew(),agenew);
-        Assert.assertEquals(webtableSerenity.getEmailNew(),emailnew);
-        Assert.assertEquals(webtableSerenity.getSalaryNew(),salarynew);
-        Assert.assertEquals(webtableSerenity.getDepartmentNew(),departmentnew);
+        Assert.assertEquals(webtableSerenity.getFirstNameNew(), fnamenew);
+        Assert.assertEquals(webtableSerenity.getLastNameNew(), lnamenew);
+        Assert.assertEquals(webtableSerenity.getAgeNew(), agenew);
+        Assert.assertEquals(webtableSerenity.getEmailNew(), emailnew);
+        Assert.assertEquals(webtableSerenity.getSalaryNew(), salarynew);
+        Assert.assertEquals(webtableSerenity.getDepartmentNew(), departmentnew);
     }
 
     @And("^Enter invalid data in email textfield and valid data in required fields$")
@@ -59,10 +62,19 @@ public class WebTableStep {
         webtableSerenity.enterDataTC04();
     }
 
+
     @Then("^The website display warning at email textfield$")
     public void theWebsiteDisplayWarningAtEmailTextfield() {
-        Assert.assertEquals(webtableSerenity.expectedColorWhenTrue(),webtableSerenity.colorCode());
+        Assert.assertEquals(webtableSerenity.expectedColorWhenFalse(), webtableSerenity.emailInputColorCode());
     }
 
+    @And("^Enter invalid data in age textfield and valid data in required fields$")
+    public void enterInvalidDataInAgeTextfieldAndValidDataInRequiredFields() {
+        webtableSerenity.enterDataTC05();
+    }
 
+    @Then("^The website display warning at age textfield$")
+    public void theWebsiteDisplayWarningAtAgeTextfield() {
+        Assert.assertEquals(webtableSerenity.expectedColorWhenFalse(), webtableSerenity.ageInputColorCode());
+    }
 }
